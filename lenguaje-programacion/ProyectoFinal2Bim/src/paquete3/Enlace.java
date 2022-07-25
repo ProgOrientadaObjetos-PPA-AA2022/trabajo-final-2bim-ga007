@@ -33,28 +33,28 @@ public class Enlace {
         return conn;
     }
     
-    public void insertarPlanCelular(PlanCelular planCel) {
-
-        try {
-            establecerConexion();
-            Statement statement = obtenerConexion().createStatement();
-            
-            String data = String.format("INSERT INTO PlanCelular"
-                    + "(cedula, nombres, correo, sueldo, mesSueldo)"
-                    + "values ('%s','%s','%s','%s','%s','%s','%.2f')",
-                    planCel.obtenerNombres(), planCel.obtenerCedula(),
-                    planCel.obtenerCiudad(), planCel.obtenerMarcaCelular(),
-                    planCel.obtenerModeloCelular(), planCel.obtenerNumeroCelular(),
-                    planCel.obtenerPagoMensual());
-            statement.executeUpdate(data);
-            obtenerConexion().close();
-            
-        } catch (SQLException e) {
-            System.out.println("Exception: insertarPlanCelular");
-            System.out.println(e.getMessage());
-
-        }
+    /*public void insertarPlanCelular(PlanCelular planCel) {
+    
+    try {
+    establecerConexion();
+    Statement statement = obtenerConexion().createStatement();
+    
+    String data = String.format("INSERT INTO PlanCelular"
+    + "(cedula, nombres, correo, sueldo, mesSueldo)"
+    + "values ('%s','%s','%s','%s','%s')",
+    planCel.obtenerNombres(), planCel.obtenerCedula(),
+    planCel.obtenerCiudad(), planCel.obtenerMarcaCelular(),
+    planCel.obtenerModeloCelular(), planCel.obtenerNumeroCelular(),
+    planCel.obtenerPagoMensual());
+    statement.executeUpdate(data);
+    obtenerConexion().close();
+    
+    } catch (SQLException e) {
+    System.out.println("Exception: insertarPlanCelular");
+    System.out.println(e.getMessage());
+    
     }
+    }*/
     
     public void insertarPlanPostPagoMegas(PlanPostPagoMegas planMega) {
 
@@ -105,7 +105,7 @@ public class Enlace {
             Statement statement = obtenerConexion().createStatement();
             
             String data = String.format("INSERT INTO PostPagoMinutosMegas"
-                    + "(minutos, costoMins, megasGB, costoMinsInt)"
+                    + "(minutos, costoMins, megasGB, costoGB)"
                     + "values ('%.2f','%.2f','%d','%.2f')",
                     planMinsMega.obtenerMinutos(), planMinsMega.obtenerCostoMinutos(),
                     planMinsMega.obtenerMegasGigas(), planMinsMega.obtenerCostoGigas());
@@ -126,7 +126,7 @@ public class Enlace {
             Statement statement = obtenerConexion().createStatement();
             
             String data = String.format("INSERT INTO PostPagoMinutosMegasEconomico"
-                    + "(minutos, costoMins, megasGB, costoMinsInt)"
+                    + "(minutos, costoMins, megasGB, costoGB, porcDesc)"
                     + "values ('%.2f','%.2f','%d','%.2f','%.0f')",
                     planMinsMegaEc.obtenerMinutos(), planMinsMegaEc.obtenerCostoMinutos(),
                     planMinsMegaEc.obtenerMegasGB(), planMinsMegaEc.obtenerCostoGigas(),
