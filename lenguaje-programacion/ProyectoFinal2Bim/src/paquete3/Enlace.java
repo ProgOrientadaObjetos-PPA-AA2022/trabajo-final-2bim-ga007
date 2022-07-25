@@ -85,7 +85,7 @@ public class Enlace {
             
             String data = String.format("INSERT INTO PlanPostPagoMinutos"
                     + "(minsNaci, costoMinsNaci, minsInt, costoMinsInt)"
-                    + "values ('%.2f','%.2f','%s','%s','%s','%s','%.2f')",
+                    + "values ('%.2f','%.2f','%.2f','%.2f')",
                     planMins.obtenerMinutosNacionales(), planMins.obtenerCostoMinutosNacionales(),
                     planMins.obtenerMinutosInternacionales(), planMins.obtenerCostoMinutosInternacionales());
             statement.executeUpdate(data);
@@ -93,6 +93,49 @@ public class Enlace {
             
         } catch (SQLException e) {
             System.out.println("Exception: insertarPlanPostPagoMinutos");
+            System.out.println(e.getMessage());
+
+        }
+    }
+    
+    public void insertarPostPagoMinutosMegas(PostPagoMinutosMegas planMinsMega) {
+
+        try {
+            establecerConexion();
+            Statement statement = obtenerConexion().createStatement();
+            
+            String data = String.format("INSERT INTO PostPagoMinutosMegas"
+                    + "(minutos, costoMins, megasGB, costoMinsInt)"
+                    + "values ('%.2f','%.2f','%d','%.2f')",
+                    planMinsMega.obtenerMinutos(), planMinsMega.obtenerCostoMinutos(),
+                    planMinsMega.obtenerMegasGigas(), planMinsMega.obtenerCostoGigas());
+            statement.executeUpdate(data);
+            obtenerConexion().close();
+            
+        } catch (SQLException e) {
+            System.out.println("Exception: insertarPostPagoMinutosMegas");
+            System.out.println(e.getMessage());
+
+        }
+    }
+    
+    public void insertarPostPagoMinutosMegasEconomico(PostPagoMinutosMegasEconomico planMinsMegaEc) {
+
+        try {
+            establecerConexion();
+            Statement statement = obtenerConexion().createStatement();
+            
+            String data = String.format("INSERT INTO PostPagoMinutosMegasEconomico"
+                    + "(minutos, costoMins, megasGB, costoMinsInt)"
+                    + "values ('%.2f','%.2f','%d','%.2f','%.0f')",
+                    planMinsMegaEc.obtenerMinutos(), planMinsMegaEc.obtenerCostoMinutos(),
+                    planMinsMegaEc.obtenerMegasGB(), planMinsMegaEc.obtenerCostoGigas(),
+                    (planMinsMegaEc.obtenerPorcentajeDescuento() * 100));
+            statement.executeUpdate(data);
+            obtenerConexion().close();
+            
+        } catch (SQLException e) {
+            System.out.println("Exception: insertarPostPagoMinutosMegas");
             System.out.println(e.getMessage());
 
         }

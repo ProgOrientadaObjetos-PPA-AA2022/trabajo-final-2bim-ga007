@@ -62,6 +62,7 @@ public class Ejecutor {
                 
                 pMin.calcularPagoMensual();
                 lista.add(pMin);
+                c.insertarPlanPostPagoMinutos(pMin);
                 
             } else if (opcion == 2) {
                 System.out.print("INGRESE LAS MEGAS (Gigas): ");
@@ -75,6 +76,7 @@ public class Ejecutor {
                 
                 pMegas.calcularPagoMensual();
                 lista.add(pMegas);
+                c.insertarPlanPostPagoMegas(pMegas);
                 
             } else if (opcion == 3) {
                 System.out.print("INGRESE LOS MINUTOS: ");
@@ -92,6 +94,7 @@ public class Ejecutor {
                 
                 pMinMega.calcularPagoMensual();
                 lista.add(pMinMega);
+                c.insertarPostPagoMinutosMegas(pMinMega);
                 
             } else if (opcion == 4) {
                 System.out.print("INGRESE LOS MINUTOS: ");
@@ -111,6 +114,8 @@ public class Ejecutor {
                 
                 pMinMegasEc.calcularPagoMensual();
                 lista.add(pMinMegasEc);
+                c.insertarPostPagoMinutosMegasEconomico(pMinMegasEc);
+                
             } else {
                 bandera = false;
                 System.out.println("\nOPCION FUERA DE RANGO!!!");
