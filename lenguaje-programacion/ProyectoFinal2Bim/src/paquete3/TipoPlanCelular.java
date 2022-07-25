@@ -24,14 +24,29 @@ public class TipoPlanCelular {
     
     @Override
     public String toString() {
-        String cadena = String.format("LISTADO PLANES CELULARES\n"
+        String cadena = String.format("\nLISTADO PLANES CELULARES\n"
                 + "--------------------------\n");
         
         for (int i = 0; i < planes.size(); i++) {
-            cadena = String.format("%s%s\n"
+            cadena = String.format("%s"
+                    + "Nombre: %s\n"
+                    + "Cedula: %s\n"
+                    + "Ciudad: %s\n"
+                    + "Marca del Celular: %s\n"
+                    + "Modelo del Celular: %s\n"
+                    + "Numero: %s\n"
+                    + "%s\n"
+                    + "PAGO MENSUAL: %.2f\n"
                     + "--------------------------\n",
                     cadena,
-                    planes.get(i));
+                    planes.get(i).obtenerNombres(),
+                    planes.get(i).obtenerCedula(),
+                    planes.get(i).obtenerCiudad(),
+                    planes.get(i).obtenerMarcaCelular(),
+                    planes.get(i).obtenerModeloCelular(),
+                    planes.get(i).obtenerNumeroCelular(),
+                    planes.get(i),
+                    planes.get(i).obtenerPagoMensual());
         }
         
         return cadena;

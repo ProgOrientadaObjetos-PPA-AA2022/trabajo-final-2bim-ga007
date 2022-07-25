@@ -53,8 +53,8 @@ public class PlanPostPagoMegas extends PlanCelular {
     
     @Override
     public String toString() {
-        String cadena = String.format("POST PAGO MEGAS\n"
-                + "-----------------------\n"
+        String cadena = String.format("-----------------------\n"
+                + "POST PAGO MEGAS\n"
                 + "MEGAS (Gigas): %d\n"
                 + "COSTO GIGA: %.2f\n"
                 + "TARIFA BASE: %.2f\n"
