@@ -50,7 +50,49 @@ public class Enlace {
             obtenerConexion().close();
             
         } catch (SQLException e) {
-            System.out.println("Exception: insertarTrabajador");
+            System.out.println("Exception: insertarPlanCelular");
+            System.out.println(e.getMessage());
+
+        }
+    }
+    
+    public void insertarPlanPostPagoMegas(PlanPostPagoMegas planMega) {
+
+        try {
+            establecerConexion();
+            Statement statement = obtenerConexion().createStatement();
+            
+            String data = String.format("INSERT INTO PlanPostPagoMegas"
+                    + "(megasGB, costoGB, tarifaBase)"
+                    + "values ('%d','%.2f','%.2f')",
+                    planMega.obtenerMegasGB(), planMega.obtenerCostoGB(),
+                    planMega.obtenerTarifaBase());
+            statement.executeUpdate(data);
+            obtenerConexion().close();
+            
+        } catch (SQLException e) {
+            System.out.println("Exception: insertarPlanPostPagoMegas");
+            System.out.println(e.getMessage());
+
+        }
+    }
+    
+    public void insertarPlanPostPagoMinutos(PlanPostPagoMinutos planMins) {
+
+        try {
+            establecerConexion();
+            Statement statement = obtenerConexion().createStatement();
+            
+            String data = String.format("INSERT INTO PlanPostPagoMinutos"
+                    + "(minsNaci, costoMinsNaci, minsInt, costoMinsInt)"
+                    + "values ('%.2f','%.2f','%s','%s','%s','%s','%.2f')",
+                    planMins.obtenerMinutosNacionales(), planMins.obtenerCostoMinutosNacionales(),
+                    planMins.obtenerMinutosInternacionales(), planMins.obtenerCostoMinutosInternacionales());
+            statement.executeUpdate(data);
+            obtenerConexion().close();
+            
+        } catch (SQLException e) {
+            System.out.println("Exception: insertarPlanPostPagoMinutos");
             System.out.println(e.getMessage());
 
         }
