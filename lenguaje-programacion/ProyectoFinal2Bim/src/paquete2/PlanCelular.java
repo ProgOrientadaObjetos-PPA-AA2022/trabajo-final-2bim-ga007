@@ -61,7 +61,7 @@ public abstract class PlanCelular {
         return cedula;
     }
     
-    public String establecerCiudad() {
+    public String obtenerCiudad() {
         return ciudad;
     }
     

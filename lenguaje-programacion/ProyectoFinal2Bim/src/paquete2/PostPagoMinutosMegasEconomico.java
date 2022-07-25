@@ -8,14 +8,14 @@ package paquete2;
  *
  * @author Carlos Morocho - PC
  */
-public class PostPagoMinnutosMegasEconomico extends PlanCelular{
+public class PostPagoMinutosMegasEconomico extends PlanCelular{
     private double minutos;
     private double costoMins;
     private int megasGB;
     private double costoGB;
     private double porcDesc;
     
-    public PostPagoMinnutosMegasEconomico(String nom, String id, String ciu,
+    public PostPagoMinutosMegasEconomico(String nom, String id, String ciu,
             String marca, String modelo, String numero,
             double mins, double costoMi, int megas, double costoGi,
             double desc){
